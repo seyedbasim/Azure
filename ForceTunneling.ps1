@@ -9,4 +9,5 @@ Set-AzVirtualNetworkGatewayDefaultSite -GatewayDefaultSite $localgw -VirtualNetw
 
 get-AzVirtualNetworkGatewayDefaultSite
 Get-AzVirtualNetworkGatewayConnection -ResourceGroupName "NTBWVDNetwork"
+#Edit
 
