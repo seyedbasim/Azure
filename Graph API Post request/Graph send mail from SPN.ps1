@@ -57,17 +57,21 @@ Azure Automation Team<br><br>
         $val = [pscustomobject]@{'Server'="server1";'Update'="update1"}
         $ArrayWithHeader.add($val) | Out-Null
         $val=$null
-        $val = [pscustomobject]@{'Server'="server1";'Update'="update1"}
+        $val = [pscustomobject]@{'Server'="server1";'Update'="update2"}
         $ArrayWithHeader.add($val) | Out-Null
         $val=$null
 #        }  
  #   }
-
+ $ArrayWithHeader | Sort-Object Server -Unique | ConvertTo-Html -Property 'Server','Update' -As Table -Head $Header 
 
 $body1 = $ArrayWithHeader | ConvertTo-Html -Property 'Server','Update' -As Table -Head $Header | Out-String
 $full_body = $null
 $full_body = $mailmessage + $body1 + $mailsignature
+$ArrayWithHeader | Get-Unique
+$ArrayWithHeader | Select-Object Server -Unique
+$ArrayWithHeader | sort server –Unique
 
+$csv = Import-csv $ArrayWithHeader
 
 $body = $null
 $body = "{
@@ -81,6 +85,12 @@ $body = "{
 `n                    },
 `n                    `"toRecipients`": [
 `n                    {
+`n                        `"emailAddress`": 
+`n                        {
+`n                            `"address`": `"basim.moulana@hirdaramani.com`"
+`n                        }
+`n                    },
+`n                      {
 `n                        `"emailAddress`": 
 `n                        {
 `n                            `"address`": `"basim.moulana@hirdaramani.com`"
