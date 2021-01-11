@@ -7,26 +7,26 @@ Select-AzSubscription -SubscriptionId $SubscriptionId
 Connect-AzAccount -SubscriptionId $SubscriptionId
 
 #Provide the name of your resource group where snapshot is created
-$resourceGroupName ="AD"
+$resourceGroupName ="Linux-Bed"
 
 #Provide the snapshot name 
-$snapshotName = "SnapOS01"
+$snapshotName = "snap01osdisk"
 
 #Provide Shared Access Signature (SAS) expiry duration in seconds e.g. 3600.
 #Know more about SAS here: https://docs.microsoft.com/en-us/Az.Storage/storage-dotnet-shared-access-signature-part-1
 $sasExpiryDuration = "3600"
 
 #Provide storage account name where you want to copy the snapshot. 
-$storageAccountName = "vhdtes1234"
+$storageAccountName = "vhdtes123"
 
 #Name of the storage container where the downloaded snapshot will be stored
-$storageContainerName = "vhds"
+$storageContainerName = "vgds"
 
 #Provide the key of the storage account where you want to copy snapshot. 
-$storageAccountKey = 'yATvnN9c3ptaeP5iYj2v5jwzX+JDGuCRdT/jEqPYHaCoYuik8tHeBgzJqddkYIydOsz//F31VdSnaAeihJpYPw=='
+$storageAccountKey = 'A8tVARk0AwsUQ9EgYUEk326aC2QFHdD9GISDIh2rtQ2JFaHe2G6KxQsvNpZjA6ls7ZWRqSYy7huEqJX5RV6iTA=='
 
 #Provide the name of the VHD file to which snapshot will be copied.
-$destinationVHDFileName = "OSVhd.vhd"
+$destinationVHDFileName = "OSVhd1.vhd"
 
 #Generate the SAS for the snapshot 
 $sas = Grant-AzSnapshotAccess -ResourceGroupName $ResourceGroupName -SnapshotName $SnapshotName  -DurationInSecond $sasExpiryDuration -Access Read
