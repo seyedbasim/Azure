@@ -10,9 +10,9 @@ $osDisk = New-AzDisk -DiskName $osDiskName -Disk `
 	-SourceResourceId $snapshot.Id) `
     -ResourceGroupName $destinationResourceGroup
 
-$datadisk1 = 
-$datadisk2 = 
-$datadisk3 = 
+#$datadisk1 = 
+#$datadisk2 = 
+#$datadisk3 = 
 
 $vnet = Get-AzVirtualNetwork -Name "MABStest-vnet" -ResourceGroupName "MABStest"
 $Subnet = Get-AzVirtualNetworkSubnetConfig -Name "default" -VirtualNetwork $vnet
