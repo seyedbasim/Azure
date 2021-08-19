@@ -26,7 +26,7 @@ $nic = New-AzNetworkInterface -Name $nicName `
 $vmName = "myVM"
 $vmConfig = New-AzVMConfig -VMName $vmName -VMSize "Standard_B2s"
 
-Standard E8s v3 (8 vcpus, 64 GiB memory)
+#Standard E8s v3 (8 vcpus, 64 GiB memory)
 
 $vm = Add-AzVMNetworkInterface -VM $vmConfig -Id $nic.Id
 Set-AzVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType Standard_LRS `
@@ -40,5 +40,5 @@ $vm = Set-AzVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType Stand
 
 New-AzVM -ResourceGroupName $destinationResourceGroup -Location $location -VM $vm
 
-C:\Test\Linux_key.pem
-ssh -i C:\Test\Linux_key.pem azureuser@52.230.52.89
+#C:\Test\Linux_key.pem
+#ssh -i C:\Test\Linux_key.pem azureuser@52.230.52.89
